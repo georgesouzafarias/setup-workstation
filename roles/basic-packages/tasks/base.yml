@@ -1,0 +1,8 @@
+---
+- name: Install All Basic Packages
+  apt:
+    name: "{{  item  }}"
+    state: present
+  when: "item not in ansible_facts.packages"  
+  loop: "{{ packages }}"
+  become: true

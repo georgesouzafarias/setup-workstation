@@ -1,0 +1,30 @@
+---
+- name: Add key, for docker repository
+  apt_key:
+    id: 0EBFCD88
+    url:  https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add docker repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present
+
+- name: Install docker engine
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  when: "item not in ansible_facts.packages"
+  loop:
+    - docker-ce 
+    - docker-ce-cli 
+    - containerd.io
+
+- name: Adding existing user to group 
+  user:
+    name: "{{ item }}"
+    groups: [docker]
+    append: yes
+  loop:
+    - george
