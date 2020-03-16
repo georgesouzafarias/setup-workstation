@@ -47,7 +47,7 @@
 - name: Adding existing user to group 
   user:
     name: "{{ item }}"
-    groups: docker
+    groups: [docker]
     append: yes
   loop:
     - george
