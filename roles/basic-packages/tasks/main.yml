@@ -43,3 +43,21 @@
     - docker-ce 
     - docker-ce-cli 
     - containerd.io
+
+- name: Add key, for Vscode repository
+  apt_key:    
+    url:  https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+
+- name: Add Vscode repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    state: present
+
+- name: Install Vscode
+  apt:
+    name: "{{ item }}"
+    state: present
+  when: "item not in ansible_facts.packages"
+  loop:
+    - code
