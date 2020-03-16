@@ -11,6 +11,6 @@
     manager: "auto"  
 
 - include_tasks: "{{ task_name }}"
-  with_fileglob: ./tasks/Ubuntu/*.yml
+  with_fileglob: ./tasks/{{ansible_distribution}}/*.yml
   loop_control:
     loop_var: "task_name"
