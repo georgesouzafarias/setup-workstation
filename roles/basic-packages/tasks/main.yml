@@ -10,7 +10,7 @@
   package_facts:
     manager: "auto"  
 
-- name: Install All Basics Packages
+- name: Install All Basic Packages
   apt:
     name: "{{  item  }}"
     state: present
