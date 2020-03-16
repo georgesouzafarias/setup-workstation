@@ -1,0 +1,5 @@
+- name: Install zsh shell
+  apt:
+    name: zsh
+    state: present
+  when: "zsh not in ansible_facts.packages"
