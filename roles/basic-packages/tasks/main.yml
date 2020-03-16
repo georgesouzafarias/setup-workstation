@@ -6,9 +6,13 @@
       - yaml
       - yml
 
-- name: Install all packages
+- name: Install All Basics Packages
   apt:
     name: "{{  item  }}"
     state: present
   loop: "{{ packages }}"
   become: true
+
+- name: Install Chrome
+  apt:
+    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
