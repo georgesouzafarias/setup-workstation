@@ -13,6 +13,11 @@
   loop: "{{ packages }}"
   become: true
 
-- name: Install Chrome
+- name: Load package facts
+  package_facts:
+    manager: "auto"  
+
+- name: Install Chrome if is not installed
   apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  when: "'google-chrome-stable' not in ansible_facts.packages"
