@@ -1,0 +1,14 @@
+---
+- name: Include variables
+  include_vars: 
+    dir: vars
+    extensions: 
+      - yaml
+      - yml
+
+- name: Install all packages
+  apt:
+    name: "{{  item  }}"
+    state: present
+  loop: "{{ packages }}"
+  become: true

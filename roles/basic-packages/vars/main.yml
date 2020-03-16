@@ -1,0 +1,12 @@
+---
+packages:
+  - vim
+  - git
+  - bash-completion  
+  - openssh-client
+  - git
+  - net-tools
+  - wget
+  - lsof
+  - unzip
+  - openjdk-14-jdk
