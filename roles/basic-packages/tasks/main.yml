@@ -44,6 +44,14 @@
     - docker-ce-cli 
     - containerd.io
 
+- name: Adding existing user to group 
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: yes
+  loop:
+    - george
+
 - name: Add key, for Vscode repository
   apt_key:    
     url:  https://packages.microsoft.com/keys/microsoft.asc
