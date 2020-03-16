@@ -6,16 +6,17 @@
       - yaml
       - yml
 
+- name: Load package facts
+  package_facts:
+    manager: "auto"  
+
 - name: Install All Basics Packages
   apt:
     name: "{{  item  }}"
     state: present
+  when: "item not in ansible_facts.packages"  
   loop: "{{ packages }}"
   become: true
-
-- name: Load package facts
-  package_facts:
-    manager: "auto"  
 
 - name: Install Chrome if is not installed
   apt:
