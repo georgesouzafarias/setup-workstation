@@ -1,17 +1,14 @@
 # Project Setup My Workstation
 
-
 1. Before Start
 First Step Install Ansible
 
 ```
-apt update
-apt install software-properties-common
-apt-add-repository --yes --update ppa:ansible/ansible
-apt install ansible
+sudo apt update
+sudo  apt install software-properties-common
+sudo  apt-add-repository --yes --update ppa:ansible/ansible
+sudo  apt install ansible python-apt
 ```
-
-
 2. Roles Planned
 
 Issue github: [Progess](https://github.com/georgesouzafarias/setup-workstation/issues/1)
@@ -36,3 +33,8 @@ Issue github: [Progess](https://github.com/georgesouzafarias/setup-workstation/i
     * Puppet Development Kit - pdk
 
   
+3. Execute the Playbook
+
+```
+ansible-playbook 01-bootstrap.yaml
+``` 
