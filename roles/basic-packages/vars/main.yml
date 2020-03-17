@@ -15,3 +15,7 @@ packages:
   - curl
   - gnupg-agent
   - software-properties-common
+  - filezilla
+  - transmission
+  - remmina
+  - remmina-plugin-rdp
