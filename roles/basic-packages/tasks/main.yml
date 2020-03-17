@@ -10,6 +10,14 @@
   package_facts:
     manager: "auto"  
 
+- name: Install All Basic Packages
+  apt:
+    name: "{{  item  }}"
+    state: present
+  when: "item not in ansible_facts.packages"  
+  loop: "{{ packages }}"
+  become: true
+
 - include_tasks: "{{ task_name }}"
   with_fileglob: ./tasks/{{ansible_distribution}}/*.yml
   loop_control:
