@@ -1,0 +1,20 @@
+- name: check if rules file exists
+  stat:
+    path: /usr/local/bin/kubectl
+  register: kubectl
+
+- name: Get the lastest version of kubectl  
+  get_url: 
+    url: https://storage.googleapis.com/kubernetes-release/release/stable.txt
+    dest: /tmp/kubectl_version.txt
+
+- name: Read Kubectl Version
+  command: cat /tmp/kubectl_version.txt  
+  register: kubectl_version
+
+- name: Download kubectl
+  get_url: 
+    url: https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_version.stdout }}/bin/linux/amd64/kubectl
+    dest: /usr/local/bin/kubectl
+    mode: 0755
+  when: kubectl.stat.exists == false  
