@@ -11,7 +11,7 @@ sudo  apt install ansible python-apt
 ```
 2. Roles Planned
 
-Issue github: [Progess](https://github.com/georgesouzafarias/setup-workstation/issues/1)
+Issue github: [Progress](https://github.com/georgesouzafarias/setup-workstation/issues/1)
 * Basic Packages
     * vim
     * git
