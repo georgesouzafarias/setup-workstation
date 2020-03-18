@@ -15,3 +15,4 @@
     dest: /usr/local/bin/kubectl
     mode: 0755
   when: kubectl.stat.exists == false
+  notify: Enable kubectl autocompletion for bash

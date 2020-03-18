@@ -2,3 +2,7 @@
 # handlers file for basic-packages
 - name: Execute zsh-installer.sh
   shell: /tmp/zsh-installer.sh
+
+- name: Enable kubectl autocompletion for bash
+  shell: 
+    cmd: kubectl completion bash >/etc/bash_completion.d/kubectl
