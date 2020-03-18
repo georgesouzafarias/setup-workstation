@@ -3,6 +3,16 @@
     path: /usr/local/bin/kubectl
   register: kubectl
 
+- name: check if kubectx exists
+  stat:
+    path: /usr/local/bin/kubectx
+  register: kubectx
+
+- name: check if kubens exists
+  stat:
+    path: /usr/local/bin/kubens
+  register: kubens
+
 - name: Get the lastest version of kubectl
   uri:
     url: https://storage.googleapis.com/kubernetes-release/release/stable.txt
@@ -16,3 +26,17 @@
     mode: 0755
   when: kubectl.stat.exists == false
   notify: Enable kubectl autocompletion for bash
+
+- name: Install kubectx
+  get_url:
+    url: "https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx"
+    dest: /usr/local/bin/kubectx
+    mode: 0755
+  when: kubectx.stat.exists == false
+
+- name: Install kubens
+  get_url:
+    url: "https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens"
+    dest: /usr/local/bin/kubens
+    mode: 0755
+  when: kubens.stat.exists == false
