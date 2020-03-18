@@ -19,3 +19,5 @@ packages:
   - transmission
   - remmina
   - remmina-plugin-rdp
+  - zsh-theme-powerlevel9k
+  - powerline
