@@ -1,5 +1,0 @@
----
-- name: Add Nvida Drivers repository
-  apt_repository:
-    repo:  ppa:graphics-drivers/ppa
-    state: present
