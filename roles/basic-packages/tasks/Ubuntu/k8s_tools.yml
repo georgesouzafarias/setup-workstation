@@ -25,7 +25,7 @@
     dest: /usr/local/bin/kubectl
     mode: 0755
   when: kubectl.stat.exists == false
-  notify: Enable kubectl autocompletion for bash
+  notify: Install autocompletion
 
 - name: Install kubectx
   get_url:
@@ -33,7 +33,7 @@
     dest: /usr/local/bin/kubectx
     mode: 0755
   when: kubectx.stat.exists == false
-  notify: Enable kubectx autocompletion for bash
+  notify: Install autocompletion
 
 - name: Install kubens
   get_url:
@@ -41,4 +41,4 @@
     dest: /usr/local/bin/kubens
     mode: 0755
   when: kubens.stat.exists == false
-  notify: Enable kubectx autocompletion for bash
+  notify: Install autocompletion

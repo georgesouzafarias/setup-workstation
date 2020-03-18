@@ -1,0 +1,34 @@
+
+- name: check if kubectl completion exists
+  stat:
+    path: /etc/bash_completion.d/kubectl
+  register: kubectl_completion
+
+- name: check if kubectx completion exists
+  stat:
+    path: /usr/share/bash-completion/completions/kubectx
+  register: kubectx_completion
+
+- name: check if kubens completion exists
+  stat:
+    path: /usr/share/bash-completion/completions/kubens
+  register: kubens_completion
+
+- name: Enable kubectl autocompletion for bash
+  shell: 
+    cmd: kubectl completion bash >/etc/bash_completion.d/kubectl
+  when: kubectl_completion.stat.exists == false
+
+- name: Enable kubectx autocompletion for bash
+  get_url:
+    url: https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubectx.bash
+    dest: /usr/share/bash-completion/completions/kubectx
+    mode: 0644
+  when: kubectx_completion.stat.exists == false
+
+- name: Enable kubens autocompletion for bash
+  get_url:
+      url: https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubens.bash
+      dest: /usr/share/bash-completion/completions/kubens
+      mode: 0644
+  when: kubens_completion.stat.exists == false
