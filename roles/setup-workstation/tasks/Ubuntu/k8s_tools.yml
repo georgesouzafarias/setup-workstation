@@ -19,26 +19,13 @@
     return_content: yes    
   register: kubectl_version 
 
-- name: Download kubectl
+- name: Download and Install kubernetes tools
   get_url:
-    url: "https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_version.content| replace('\n','') }}/bin/linux/amd64/kubectl"
-    dest: /usr/local/bin/kubectl
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
     mode: 0755
-  when: kubectl.stat.exists == false
-  notify: Install autocompletion
-
-- name: Install kubectx
-  get_url:
-    url: "https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx"
-    dest: /usr/local/bin/kubectx
-    mode: 0755
-  when: kubectx.stat.exists == false
-  notify: Install autocompletion
-
-- name: Install kubens
-  get_url:
-    url: "https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens"
-    dest: /usr/local/bin/kubens
-    mode: 0755
-  when: kubens.stat.exists == false
+  loop:
+    - { url: "https://storage.googleapis.com/kubernetes-release/release/{{ kubectl_version.content| replace('\n','') }}/bin/linux/amd64/kubectl", dest: /usr/local/bin/kubectl }
+    - { url: "https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx", dest: /usr/local/bin/kubectx }
+    - { url: "https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens", dest: /usr/local/bin/kubens }
   notify: Install autocompletion
