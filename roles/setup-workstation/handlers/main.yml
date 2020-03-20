@@ -4,4 +4,4 @@
   shell: /tmp/zsh-installer.sh
 
 - name: Install autocompletion
-  include_tasks: "./Extras/autocompletion.yml"
+  include_tasks: "Extras/autocompletion.yml"

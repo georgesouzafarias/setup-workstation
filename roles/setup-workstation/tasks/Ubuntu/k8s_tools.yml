@@ -1,18 +1,3 @@
-- name: check if kubectl exists
-  stat:
-    path: /usr/local/bin/kubectl
-  register: kubectl
-
-- name: check if kubectx exists
-  stat:
-    path: /usr/local/bin/kubectx
-  register: kubectx
-
-- name: check if kubens exists
-  stat:
-    path: /usr/local/bin/kubens
-  register: kubens
-
 - name: Get the lastest version of kubectl
   uri:
     url: https://storage.googleapis.com/kubernetes-release/release/stable.txt
