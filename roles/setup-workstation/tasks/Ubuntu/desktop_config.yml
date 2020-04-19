@@ -1,0 +1,11 @@
+---
+- name: Install Desktop packages
+  apt:
+    name: "{{ item }}"
+  loop:
+    - gnome-tweaks
+    - gnome-shell-extension-appindicator 
+    - gnome-shell-extension-system-monitor
+    - gnome-shell-extension-ubuntu-dock
+    - nautilus-extension-gnome-terminal
+    - gnome-shell-extension-dash-to-panel

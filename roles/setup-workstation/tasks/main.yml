@@ -36,3 +36,7 @@
 - name: install miscellaneous packages
   include_tasks: "{{ansible_distribution}}/miscellaneous_packages.yml"
   when: miscellaneous_packages | bool
+
+- name: install display configuration tools
+  include_tasks: "{{ansible_distribution}}/desktop_config.yml.yml"
+  when: desktop_config | bool

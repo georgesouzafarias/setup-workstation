@@ -9,5 +9,6 @@
     - vscode: true
     - zsh: true
     - miscellaneous_packages: true
+    - desktop_config: true
   roles:
     - setup-workstation
