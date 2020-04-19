@@ -1,8 +1,11 @@
 - name: Install zsh shell
   apt:
-    name: zsh
+    name: "{{ item }}"
     state: present
-  when: "'zsh' not in ansible_facts.packages"
+  loop:
+    - zsh
+    - zsh-theme-powerlevel9k
+    - powerline
 
 - name: check if rules file exists
   stat:
