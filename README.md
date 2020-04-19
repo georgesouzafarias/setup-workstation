@@ -1,7 +1,10 @@
 # Project Setup My Workstation
 
-1. Before Start
-First Step Install Ansible
+List of Steps
+
+1. Before you Start
+
+First Step Install Ansible - Execute the lines between ``` in the terminal
 
 ```
 sudo apt update
@@ -9,9 +12,15 @@ sudo  apt install software-properties-common
 sudo  apt-add-repository --yes --update ppa:ansible/ansible
 sudo  apt install ansible python-apt
 ```
-2. Tasks
 
-Issue github: [Progress](https://github.com/georgesouzafarias/setup-workstation/issues/1)
+2. After Ansible Installation Execute the Playbook - Execute the lines between ``` in the terminal in the same folder of the archive extraction
+
+```
+sudo ansible-playbook 01-bootstrap.yaml
+```
+
+3. Which Tasks will be executed
+
 * Basic Packages  
   - vim
   - git
@@ -53,9 +62,8 @@ Issue github: [Progress](https://github.com/georgesouzafarias/setup-workstation/
 * Puppet
     * Puppet Development Kit - pdk
 
-  
-3. Execute the Playbook
+4. If you find any issues please send them to:
 
-```
-ansible-playbook 01-bootstrap.yaml
-``` 
+	Issues github: [Progress](https://github.com/georgesouzafarias/setup-workstation/issues/1)
+
+Thanks.
