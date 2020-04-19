@@ -1,24 +1,34 @@
 ---
-- name: Include variables
-  include_vars: 
-    dir: vars
-    extensions: 
-      - yaml
-      - yml
-
-- name: Load package facts
-  package_facts:
-    manager: "auto"  
-
 - name: Install All Basic Packages
   apt:
     name: "{{  item  }}"
     state: present
-  when: "item not in ansible_facts.packages"  
   loop: "{{ packages }}"
-  become: true
 
-- include_tasks: "{{ task_name }}"
-  with_fileglob: ./tasks/{{ansible_distribution}}/*.yml
-  loop_control:
-    loop_var: "task_name"
+- name: Load package facts
+  package_facts:
+    manager: "auto" 
+
+- name: install docker enginer
+  include_tasks: "{{ansible_distribution}}/docker.yml"
+  when: docker | bool
+  
+- name: install chrome browser
+  include_tasks: "{{ansible_distribution}}/chrome.yml"
+  when: chrome | bool
+
+- name: install Kubernetes Tools
+  include_tasks: "{{ansible_distribution}}/k8s_tools.yml"
+  when: k8s_tools | bool
+
+- name: install virtualbox
+  include_tasks: "{{ansible_distribution}}/virtualbox.yml"
+  when: virtualbox | bool
+
+- name: install vscode
+  include_tasks: "{{ansible_distribution}}/vscode.yml"
+  when: vscode | bool
+
+- name: install zsh shell
+  include_tasks: "{{ansible_distribution}}/zsh.yml"
+  when: zsh | bool
