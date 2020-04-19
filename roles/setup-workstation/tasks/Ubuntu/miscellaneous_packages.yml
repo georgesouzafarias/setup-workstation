@@ -1,0 +1,5 @@
+---
+- name: install miscellaneous packages
+  apt:
+    name: "{{ item }}"
+  loop: "{{ miscellaneous_packages_list }}"
