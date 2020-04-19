@@ -1,0 +1,30 @@
+---
+packages:
+  - vim
+  - git
+  - bash-completion  
+  - openssh-client
+  - git
+  - net-tools
+  - wget
+  - lsof
+  - unzip
+  - openjdk-14-jdk
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg-agent
+  - software-properties-common
+  - filezilla
+  - transmission
+  - remmina
+  - remmina-plugin-rdp
+  - zsh-theme-powerlevel9k
+  - powerline
+  
+chrome: true
+docker: true
+k8s_tools: true
+virtualbox: true
+vscode: true
+zsh: true
