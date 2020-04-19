@@ -18,7 +18,6 @@
   apt:
     name: "{{ item }}"
     state: present
-    update_cache: yes
-  when: "item not in ansible_facts.packages"
+    update_cache: yes  
   loop:
     - virtualbox-6.1
