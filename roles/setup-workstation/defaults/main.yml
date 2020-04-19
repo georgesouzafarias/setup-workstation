@@ -14,17 +14,24 @@ packages:
   - ca-certificates
   - curl
   - gnupg-agent
-  - software-properties-common
+  - software-properties-common      
+  - python3-pip
+  
+
+miscellaneous_packages_list:
+  - calibre
+  - cowsay
   - filezilla
+  - okular
+  - vlc
   - transmission
   - remmina
-  - remmina-plugin-rdp
-  - zsh-theme-powerlevel9k
-  - powerline
-  
+  - remmina-plugin-rdp  
+
 chrome: true
 docker: true
 k8s_tools: true
 virtualbox: true
 vscode: true
 zsh: true
+miscellaneous_packages: true
