@@ -13,36 +13,51 @@ sudo  apt-add-repository --yes --update ppa:ansible/ansible
 sudo  apt install ansible python-apt
 ```
 
-2. After Ansible Installation Execute the Playbook - Execute the lines between ``` in the terminal in the same folder of the archive extraction
+2. Before run the playbook, in file 01-bootstrap.yaml, you can define true or false for the follow groups of tasks, in order to control the execution:
+
+* chrome
+* docker
+* k8s_tools
+* virtualbox
+* vscode
+* zsh
+* miscellaneous_packages
+* desktop_config
+
+3. After that Ansible Installation Execute the Playbook - Execute the lines between ``` in the terminal in the same folder of the archive extraction
 
 ```
 sudo ansible-playbook 01-bootstrap.yaml
 ```
 
-3. Which Tasks will be executed
+4. Some informations:
 
 * Basic Packages  
-  - vim
-  - git
-  - bash-completion  
-  - openssh-client
-  - git
-  - net-tools
-  - wget
-  - lsof
-  - unzip
-  - openjdk-14-jdk
-  - apt-transport-https
-  - ca-certificates
-  - curl
-  - gnupg-agent
-  - software-properties-common
+    - vim
+    - git
+    - bash-completion  
+    - openssh-client
+    - git
+    - net-tools
+    - wget
+    - lsof
+    - unzip
+    - openjdk-14-jdk
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg-agent
+    - software-properties-common      
+    - python3-pip
+* miscellaneous_packages:
+  - calibre
+  - cowsay
   - filezilla
+  - okular
+  - vlc
   - transmission
   - remmina
-  - remmina-plugin-rdp
-  - zsh-theme-powerlevel9k
-  - powerline
+  - remmina-plugin-rdp 
 * Chrome Browser
 * Visual Studio Code
 * Virtuabox
@@ -50,20 +65,15 @@ sudo ansible-playbook 01-bootstrap.yaml
     - Kubectl
     - kubectx
     - kubens
-* Zsh Shell
-    * Install Zsh    
-    * Change the user's default shell
-    * ZSH_THEME="agnoster"
-    * plugins=(git kubectl docker)
-* Docker
-    * Docker enginer
-    * User to docker group
-* Google Cloud Sdk
-* Puppet
+* Zsh Shell    
+* Docker    
+* Google Cloud Sdk (Future)
+* Puppet (Future)
     * Puppet Development Kit - pdk
 
-4. If you find any issues please send them to:
+5. If you find any issues please send them to: [Issues](https://github.com/georgesouzafarias/setup-workstation/issues)
 
-	Issues github: [Progress](https://github.com/georgesouzafarias/setup-workstation/issues/1)
+
+To Follow the [Progress](https://github.com/georgesouzafarias/setup-workstation/issues/1)
 
 Thanks.
