@@ -32,3 +32,7 @@
 - name: install zsh shell
   include_tasks: "{{ansible_distribution}}/zsh.yml"
   when: zsh | bool
+
+- name: install miscellaneous packages
+  include_tasks: "{{ansible_distribution}}/miscellaneous_packages.yml"
+  when: miscellaneous_packages | bool
