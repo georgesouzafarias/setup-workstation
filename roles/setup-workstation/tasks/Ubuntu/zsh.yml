@@ -6,7 +6,7 @@
 
 - name: check if rules file exists
   stat:
-    path: /tmp/zsh-installer.sh
+    path: ~/.oh-my-zsh
   register: zsh_download
 
 - name: Download zsh installer
