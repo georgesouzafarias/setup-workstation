@@ -21,10 +21,15 @@
     - docker-ce-cli 
     - containerd.io
 
+- name: get user info
+  getent:
+    database: passwd
+    key: "{{ uid_default }}"
+
 - name: Adding existing user to group 
   user:
-    name: "{{ item }}"
+    name: "{{ item.key}}"
     groups: [docker]
     append: yes
-  loop:
-    - george
+  with_dict:
+  - "{{ getent_passwd }}"
