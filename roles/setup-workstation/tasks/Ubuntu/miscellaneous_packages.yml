@@ -3,3 +3,9 @@
   apt:
     name: "{{ item }}"
   loop: "{{ miscellaneous_packages_list }}"
+
+- name: install miscellaneous snaps
+  snap:
+    name: "{{ item }}"
+    classic: true
+  loop: "{{ miscellaneous_snaps_list }}"

@@ -9,7 +9,7 @@ packages:
   - wget
   - lsof
   - unzip
-  - openjdk-14-jdk
+  - openjdk-11-jdk
   - apt-transport-https
   - ca-certificates
   - curl
@@ -26,7 +26,11 @@ miscellaneous_packages_list:
   - vlc
   - transmission
   - remmina
-  - remmina-plugin-rdp  
+  - remmina-plugin-rdp
+
+miscellaneous_snaps_list:
+  - spotify
+  - slack
 
 chrome: true
 docker: true
@@ -36,3 +40,4 @@ vscode: true
 zsh: true
 miscellaneous_packages: true
 desktop_config: true
+subliminal: true
