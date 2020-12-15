@@ -10,25 +10,15 @@
   package_facts:
     manager: "auto" 
 
-- name: install docker enginer
-  include_tasks: "{{ansible_distribution}}/docker.yml"
-  when: docker | bool
-  
+# Generic Softwares 
+
 - name: install chrome browser
   include_tasks: "{{ansible_distribution}}/chrome.yml"
   when: chrome | bool
 
-- name: install Kubernetes Tools
-  include_tasks: "{{ansible_distribution}}/k8s_tools.yml"
-  when: k8s_tools | bool
-
 - name: install virtualbox
   include_tasks: "{{ansible_distribution}}/virtualbox.yml"
   when: virtualbox | bool
-
-- name: install vscode
-  include_tasks: "{{ansible_distribution}}/vscode.yml"
-  when: vscode | bool
 
 - name: install zsh shell
   include_tasks: "{{ansible_distribution}}/zsh.yml"
@@ -41,3 +31,29 @@
 - name: install display configuration tools
   include_tasks: "{{ansible_distribution}}/desktop_config.yml"
   when: desktop_config | bool
+
+## Devops Tools
+
+- name: install vscode
+  include_tasks: "{{ansible_distribution}}/vscode.yml"
+  when: vscode | bool
+
+- name: install Kubernetes Tools
+  include_tasks: "{{ansible_distribution}}/k8s_tools.yml"
+  when: k8s_tools | bool
+
+- name: install docker enginer
+  include_tasks: "{{ansible_distribution}}/docker.yml"
+  when: docker | bool
+
+- name: install aws cli
+  include_tasks: "Extas/aws.yml"
+  when: aws | bool
+
+- name: install gcloud cli #TODO
+  include_tasks: "Extas/gcloud.yml"
+  when: gcloud | bool
+
+- name: install terraform #TODO
+  include_tasks: "Extas/terraform.yml"
+  when: terraform | bool

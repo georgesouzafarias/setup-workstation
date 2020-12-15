@@ -20,4 +20,4 @@
     state: present
     update_cache: yes  
   loop:
-    - virtualbox-6.1
+    - virtualbox

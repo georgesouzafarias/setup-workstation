@@ -9,13 +9,13 @@ packages:
   - wget
   - lsof
   - unzip
-  - openjdk-11-jdk
+  - default-jdk
   - apt-transport-https
   - ca-certificates
   - curl
   - gnupg-agent
   - software-properties-common      
-  - python3-pip
+  - python3-pip 
   
 
 miscellaneous_packages_list:
@@ -27,17 +27,21 @@ miscellaneous_packages_list:
   - transmission
   - remmina
   - remmina-plugin-rdp
+  - kronometer
 
 miscellaneous_snaps_list:
   - spotify
   - slack
 
-chrome: true
+chrome: false
 docker: true
 k8s_tools: true
-virtualbox: true
+virtualbox: false
 vscode: true
 zsh: true
 miscellaneous_packages: true
 desktop_config: true
-subliminal: true
+subliminal: false
+terraform: false
+aws: true
+gcloud: false

@@ -3,13 +3,13 @@
   connection: local
   vars:
     - chrome: true
-    - docker: false
+    - docker: true
     - k8s_tools: true
-    - virtualbox: false
-    - vscode: false
+    - virtualbox: true
+    - vscode: true
     - zsh: true
     - miscellaneous_packages: true
     - desktop_config: true
-    - subliminal: true
+    - subliminal: false
   roles:
     - setup-workstation
