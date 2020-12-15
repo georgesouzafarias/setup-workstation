@@ -47,7 +47,7 @@
   when: docker | bool
 
 - name: install aws cli
-  include_tasks: "Extas/aws.yml"
+  include_tasks: "Extras/aws.yml"
   when: aws | bool
 
 - name: install gcloud cli #TODO
