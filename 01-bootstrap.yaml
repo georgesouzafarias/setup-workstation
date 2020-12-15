@@ -2,14 +2,16 @@
 - hosts: localhost
   connection: local
   vars:
-    - chrome: true
+    - chrome: false
     - docker: true
     - k8s_tools: true
-    - virtualbox: true
+    - virtualbox: false
     - vscode: true
     - zsh: true
     - miscellaneous_packages: true
-    - desktop_config: true
-    - subliminal: false
+    - desktop_config: true 
+    - terraform: false
+    - aws: true
+    - gcloud: false
   roles:
     - setup-workstation

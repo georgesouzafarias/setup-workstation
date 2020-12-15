@@ -33,15 +33,14 @@ miscellaneous_snaps_list:
   - spotify
   - slack
 
-chrome: false
+chrome: true
 docker: true
 k8s_tools: true
-virtualbox: false
+virtualbox: true
 vscode: true
 zsh: true
 miscellaneous_packages: true
 desktop_config: true
-subliminal: false
-terraform: false
+terraform: true
 aws: true
-gcloud: false
+gcloud: true
